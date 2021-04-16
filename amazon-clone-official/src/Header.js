@@ -3,20 +3,21 @@ import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
         <Container>
             <HeaderLogo>
-                <img src={"https://i.imgur.com/7I9Was5.png"}/>
+                <Link to="/">
+                    <img src={"https://i.imgur.com/7I9Was5.png"}/>
+                </Link>
             </HeaderLogo>
             <HeaderOptionAddress>
-                <HeaderAddressIconContainer>
                     <LocationOnIcon/>
-                </HeaderAddressIconContainer>
                 <HeaderOption>
-                <OptionLineOne>Hello</OptionLineOne>
-                <OptionLineTow>Select your address</OptionLineTow>
+                    <OptionLineOne>Hello</OptionLineOne>
+                    <OptionLineTow>Select your address</OptionLineTow>
                 </HeaderOption>
             </HeaderOptionAddress>
             <HeaderSearch>
@@ -34,10 +35,15 @@ function Header() {
                     <OptionLineOne>Returns</OptionLineOne>
                     <OptionLineTow>& Orders</OptionLineTow>
                 </HeaderOption>
+                
                 <HeaderOptionCart>
-                    <ShoppingBasketIcon/>
-                    <CartCount>8</CartCount>
+                    <Link to="/cart">
+                        <ShoppingBasketIcon/>
+                        <CartCount>8</CartCount>
+                    </Link>
                 </HeaderOptionCart>
+            
+
             </HeaderNavItems>
         </Container>
     );
@@ -56,19 +62,17 @@ const Container = styled.div`
 
 const HeaderLogo = styled.div`
     img {
-        width: 100px;
-        margin-left: 11px;
-        padding: 10px 8px 0px 0px;
+        width: 96.5px;
+        margin-left: 21px;
+        padding: 10px 8px 1px 0px;
     }
 `
 
 const HeaderOptionAddress = styled.div`
    display:flex;
+   padding-left: 9px;
+   align-items: center;
 `
-const HeaderAddressIconContainer = styled.div`
-
-`
-
 const OptionLineOne = styled.div`
 
 `
@@ -81,11 +85,19 @@ const HeaderSearch = styled.div`
     flex-grow: 1;
     border-radius: 5px;
     overflow: hidden;
+    margin-left: 4px;
+    background-color: white;
+    :focus-within{
+        box-shadow: 0 0 0 3px #f90;
+    }
 `
 
 const HeaderSearchInput = styled.input`
     flex-grow: 1;
     border: 0;
+    :focus{
+        outline: none;
+    }    
 `
 
 const HeaderSearchIconContainer = styled.div`
@@ -94,22 +106,29 @@ const HeaderSearchIconContainer = styled.div`
     color: black;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 0;
-`
+    justify-content: center;`
 
 const HeaderNavItems = styled.div`
     display: flex;
+    padding-left: 15px;
 `
 
 const HeaderOption = styled.div`
-    padding: 10px 9px 10px 9px;
+    padding: 10px 12px 10px 12px;
+    font-size: 13px;
 `
 
 const HeaderOptionCart = styled.div`
     display: flex;
+    a {
+        display: flex;
+        align-items: center;
+        padding-right: 9px;
+        color: white;
+        text-decoration: none;
+    }
 `
 
 const CartCount = styled.div`
-
+    padding-left: 4px;
 `
