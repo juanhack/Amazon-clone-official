@@ -1,19 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 
-function Product() {
+function Product(props) {
+    console.log(props)
     return (
         <Container>
             <Title>
-            Cartucho de tinta HP original 63&nbsp;negro
+            {props.title}
             </Title>
             <Price>
-             COP $635,037.17
+             US ${props.price}
             </Price>
-            <Rating>    
-            ⭐⭐⭐⭐⭐
+            <Rating> 
+                {
+                    Array(props.rating)
+                    .fill()
+                    .map(rating => <p>⭐</p>)
+                }
             </Rating>
-            <Image src="https://images-na.ssl-images-amazon.com/images/I/41nV177MSfL.jpg">
+            <Image src={props.image}>
             </Image>
             <ActionSection>
                 <AddToCartBotton>
@@ -45,7 +50,8 @@ const Price = styled.span`
 
 `
 const Rating = styled.div`
-
+    display: flex;
+    flex-direction: row;
 `
 const Image = styled.img`
     max-height: 200px;

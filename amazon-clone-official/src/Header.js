@@ -35,15 +35,12 @@ function Header() {
                     <OptionLineOne>Returns</OptionLineOne>
                     <OptionLineTow>& Orders</OptionLineTow>
                 </HeaderOption>
-                
                 <HeaderOptionCart>
                     <Link to="/cart">
                         <ShoppingBasketIcon/>
                         <CartCount>8</CartCount>
                     </Link>
                 </HeaderOptionCart>
-            
-
             </HeaderNavItems>
         </Container>
     );
@@ -130,5 +127,7 @@ const HeaderOptionCart = styled.div`
 `
 
 const CartCount = styled.div`
-    padding-left: 4px;
+    padding-left: 6px;
+    font-weight: 700;
+    color: #f08804;
 `
