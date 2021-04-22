@@ -5,7 +5,7 @@ import Product from './Product';
 import { db }  from './firebase';
 
 function Home() {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
     const getProducts = () => {
         db.collection('products').onSnapshot((snapshot) =>{
@@ -31,6 +31,8 @@ function Home() {
             </Banner>
             <Content>
                 {
+                    /* Aqui vamos a mapear todo el listado que viene de la coleccion de productos, y posteriormente la enviamos al componente por
+                    medio de los props, para este caso particular enviamos dato por dato de cada documento */
                     products.map((data) =>(
                         <Product
                             title = {data.product.name}

@@ -3,10 +3,15 @@ import styled from 'styled-components';
 import CartItems from './CartItems';
 import CartTotal from './CartTotal';
 
-function Cart() {
+/* Ahora, para recibir los datos que nos envia el App.js existen dos maneras de recibir dicha informacion, la primera seria:
+    function Cart(props) {
+        return (
+y la segunda forma es la siguiente>
+*/
+function Cart({cartItems}) {
     return (
         <Container>
-            <CartItems />
+            <CartItems cartItems = {cartItems} />
             <CartTotal />
         </Container>
     )
@@ -16,5 +21,5 @@ export default Cart
 
 const Container = styled.div`
     display: flex;
-    padding: 14px 18px 0 18px;
+    padding: 35px 25px 0 25px;
 `
