@@ -1,24 +1,31 @@
 import React from 'react'
 import styled from 'styled-components';
+import {db} from './firebase'
 
-function Product(props) {
-    console.log(props)
+function Product({title, price, rating, image, id}) {
+    const addToCart = () => {
+        const cartItem = db.collection('cartItems').doc(id);
+        cartItem.get();
+    }
+
     return (
+
+
         <Container>
             <Title>
-            {props.title}
+            {title}
             </Title>
             <Price>
-             US ${props.price}
+             US ${price}
             </Price>
             <Rating> 
                 {
-                    Array(props.rating)
+                    Array(rating)
                     .fill()
                     .map(rating => <p>⭐</p>)
                 }
             </Rating>
-            <Image src={props.image}>
+            <Image src={image}>
             </Image>
             <ActionSection>
                 <AddToCartBotton>
@@ -52,6 +59,8 @@ const Price = styled.span`
 const Rating = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 15px;
+    cursor: pointer;
 `
 const Image = styled.img`
     max-height: 200px;
@@ -70,6 +79,7 @@ const AddToCartBotton = styled.button`
     background-color: #f0c14b;
     border-radius: 2px;
     border: 1px solid #a88734;
+    margin-top: 10px;
     :hover{
         background-color:  #e5b431;
         cursor: pointer;

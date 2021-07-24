@@ -1,26 +1,26 @@
 import React from 'react';
 import styled from "styled-components";
 
-function CartItem() {
+function CartItem({ id, item }) {
     return (
         <Container>
             {/* Una vez analizado el diseño se puede apreciar que contiene tres columnas y dentro de la segunda columna existen dos filas, de las cuales la segunda contiene dos columnas;
             por lo que se pretende diseniar de esta manera los componentes correspondientes, asi mismo es importante aclarar que esta es la tecnica que se debe emplear para analizar los
             disenios en general (FILAS Y COLUMNAS QUE COMPONEN EL DISENIO) */}
             <ImageContainer>
-                <img src={"https://m.media-amazon.com/images/I/71c5W9NxN5L._AC_UL320_.jpg"}/>
+                <img src={item.image}/>
             </ImageContainer>
             <CartItemInfo>
                 <CartItemInfoTop>
-                    <h2>Acer Chromebook laptop</h2>
+                    <h2>{item.name}</h2>
                 </CartItemInfoTop>
                 <CartItemInfoBottom>
-                    <CartItemQuantityContainer>3</CartItemQuantityContainer>
+                    <CartItemQuantityContainer>{item.quantity}</CartItemQuantityContainer>
                     <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
                 </CartItemInfoBottom>
             </CartItemInfo>
             <CartItemPrice>
-                $261.24
+                ${item.price}
             </CartItemPrice>
 
         </Container>

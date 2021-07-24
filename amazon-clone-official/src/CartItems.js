@@ -2,13 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import CartItem from './CartItem';
 
-function CartItems() {
+function CartItems({cartItems}) {
     return (
         <Container>
             <Title>Shopping Cart</Title>
             <hr/>
             <ItemContainer>
-                <CartItem/>
+                {
+                    cartItems.map((item) => (
+                        <CartItem
+                            id = {item.id}
+                            item = {item.product}                       
+                        > 
+                        </CartItem>
+                    ))
+                }
             </ItemContainer>
 
         </Container>
@@ -25,8 +33,9 @@ const Container = styled.div`
     background-color: white;
 `
 const Title = styled.p`
-    font-size: 40px;
-    font-weight: 60;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 8px;
 `
 const ItemContainer = styled.div`
 

@@ -8,9 +8,10 @@ import CartTotal from './CartTotal';
         return (
 y la segunda forma es la siguiente>
 */
-function Cart({cartItems}) {
+function Cart({cartItems}){
     return (
         <Container>
+            {/* Ahora pasaremos la data recibida desde App.js al componente CartItems (Tambien por Props) */}
             <CartItems cartItems = {cartItems} />
             <CartTotal />
         </Container>
